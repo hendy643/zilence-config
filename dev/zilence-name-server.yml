@@ -1,0 +1,4 @@
+user:
+  role: Developer
+app:
+  message: Hello from zilence-name-server

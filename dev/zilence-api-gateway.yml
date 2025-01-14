@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    gateway:
+      global-filter:
+        load-balancer-client:
+          enabled: true
+      routes:
+        - id: zilence-name-server
+          uri: lb://zilence-name-server
+          predicates:
+            - Path: /name/**
+          filters:
+            - StripPrefix: 1
+        - id: zilence-config-server
+          uri: lb://zilence-config-server
+          predicates:
+            - Path: /config/**
+              filters:
+                - StripPrefix: 1
